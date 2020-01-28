@@ -16,16 +16,12 @@ let commentRoutes 		= require("./routes/comments"),
 	campgroundRoutes 	= require("./routes/campgrounds"),
 	indexRoutes			= require("./routes/index");
 
-//-------------LocalDB----------------------------------
+
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
 mongoose.set('useCreateIndex', true);
 mongoose.connect(process.env.DATABASEURL);
-//-------------LocalDB----------------------------------
-console.log(process.env.DATABASEURL);
-//-------------CloudDB----------------------------------
-//mongoose.connect("mongodb+srv://admin:mongo1672284@cluster0-ptfoe.mongodb.net/test?retryWrites=true&w=majority");
-//-------------CloudDB----------------------------------
+
 app.use(methodOverride("_method"));
 app.use(flash());
 // mongoose.connect("mongodb://localhost/yelp_camp").then(function(){ //seed the database
