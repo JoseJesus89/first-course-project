@@ -16,10 +16,19 @@ let commentRoutes 		= require("./routes/comments"),
 	campgroundRoutes 	= require("./routes/campgrounds"),
 	indexRoutes			= require("./routes/index");
 
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useUnifiedTopology', true);
-// mongoose.connect("mongodb://localhost/yelp_camp");
-mongoose.connect("mongodb+srv://admin:##Mongo@1672284##@cluster0-ptfoe.mongodb.net/test?retryWrites=true&w=majority");
+//-------------LocalDB----------------------------------
+//mongoose.set('useNewUrlParser', true);
+//mongoose.set('useUnifiedTopology', false);
+//mongoose.connect("mongodb://localhost/yelp_camp");
+//-------------LocalDB----------------------------------
+
+//-------------CloudDB----------------------------------
+mongoose.connect("mongodb+srv://admin:mongo1672284@cluster0-ptfoe.mongodb.net/test?retryWrites=true&w=majority", {
+	useNewUrlParser: true,
+	useCreateIndex: true,
+	useUnifiedTopology: true
+});
+//-------------CloudDB----------------------------------
 app.use(methodOverride("_method"));
 app.use(flash());
 // mongoose.connect("mongodb://localhost/yelp_camp").then(function(){ //seed the database
