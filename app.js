@@ -18,7 +18,8 @@ let commentRoutes 		= require("./routes/comments"),
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb://localhost/yelp_camp");
+// mongoose.connect("mongodb://localhost/yelp_camp");
+mongoose.connect("mongodb+srv://admin:##Mongo@1672284##@cluster0-ptfoe.mongodb.net/test?retryWrites=true&w=majority");
 app.use(methodOverride("_method"));
 app.use(flash());
 // mongoose.connect("mongodb://localhost/yelp_camp").then(function(){ //seed the database
