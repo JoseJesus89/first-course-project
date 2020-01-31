@@ -20,7 +20,7 @@ let commentRoutes 		= require("./routes/comments"),
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
 mongoose.set('useCreateIndex', true);
-mongoose.connect(process.env.DATABASEURL);
+mongoose.connect(process.env.DATABASEURL || "mongodb://localhost/yelp_camp");
 
 app.use(methodOverride("_method"));
 app.use(flash());

@@ -13,3 +13,13 @@
 .delete-form {
 	display: inline;
 }
+
+.display-flex {
+	display: flex; 
+	flex-wrap: wrap;
+}
+
+.imgs-size {
+	max-height: 250px;
+	min-height: 250px;
+}
