@@ -1,4 +1,4 @@
-let express 		= require("express"),
+const express 		= require("express"),
 	app 			= express(),
 	bodyParser 		= require("body-parser"),
 	mongoose 		= require("mongoose"),
@@ -12,9 +12,9 @@ let express 		= require("express"),
 	flash			= require("connect-flash");
 
 //requiring routes
-let commentRoutes 		= require("./routes/comments"),
-	campgroundRoutes 	= require("./routes/campgrounds"),
-	indexRoutes			= require("./routes/index");
+const commentRoutes 		= require("./routes/comments"),
+	campgroundRoutes 		= require("./routes/campgrounds"),
+	indexRoutes				= require("./routes/index");
 
 //console.log(process.env.DATABASEURL);
 mongoose.set('useNewUrlParser', true);
@@ -40,7 +40,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use(function(req, res, next){
+app.use((req, res, next) => {
 	res.locals.currentUser = req.user;
 	res.locals.error = req.flash("error");
 	res.locals.success = req.flash("success");
@@ -55,7 +55,7 @@ app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
-let port = process.env.PORT || 3000;
-app.listen(port, function(){
-	console.log("Server started!!!");
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+	console.log("Servier started!!!");
 });
